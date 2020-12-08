@@ -41,9 +41,7 @@ public class Game {
 
     private boolean checkWinByRow(int i) {
         if (isRowFull(i)) {
-            if (isRowFullWithSameSymbol(i)) {
-                return true;
-            }
+            return isRowFullWithSameSymbol(i);
         }
         return false;
     }
