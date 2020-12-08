@@ -9,9 +9,10 @@ public class Board
 
     public Board()
     {
-        for (int i = 0; i < 3; i++)
+        final int DIM = 3;
+        for (int i = 0; i < DIM; i++)
         {
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < DIM; j++)
             {
                 Tile tile = new Tile();
                 tile.X = i;
