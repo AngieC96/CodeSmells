@@ -27,25 +27,25 @@ public class Game {
     }
 
     public char Winner() {
-        if (isRowFull(0)) {
-            if (isRowFullWithSameSymbol(0)) {
-                return _board.TileAt(0, 0).Symbol;
-            }
-        }
+        if (checkWinByRow(0))
+            return _board.TileAt(0, 0).Symbol;
 
-        if (isRowFull(1)) {
-            if (isRowFullWithSameSymbol(1)) {
-                return _board.TileAt(1, 0).Symbol;
-            }
-        }
+        if (checkWinByRow(1))
+            return _board.TileAt(1, 0).Symbol;
 
-        if (isRowFull(2)) {
-            if (isRowFullWithSameSymbol(2)) {
-                return _board.TileAt(2, 0).Symbol;
-            }
-        }
+        if (checkWinByRow(2))
+            return _board.TileAt(2, 0).Symbol;
 
         return ' ';
+    }
+
+    private boolean checkWinByRow(int i) {
+        if (isRowFull(i)) {
+            if (isRowFullWithSameSymbol(i)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean isRowFullWithSameSymbol(int i) {
