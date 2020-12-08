@@ -33,7 +33,7 @@ public class Board
         return null;
     }
 
-    public void AddTileAt(char symbol, int x, int y)
+    public void changeSymbolInTileAt(char symbol, int x, int y)
     {
         TileAt(x, y).setSymbol(symbol);
     }

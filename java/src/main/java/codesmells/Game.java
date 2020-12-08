@@ -23,7 +23,7 @@ public class Game {
 
         // update game state
         _lastSymbol = symbol;
-        _board.AddTileAt(symbol, x, y);
+        _board.changeSymbolInTileAt(symbol, x, y);
     }
 
     public char Winner() {
