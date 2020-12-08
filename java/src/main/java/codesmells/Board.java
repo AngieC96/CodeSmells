@@ -14,10 +14,7 @@ public class Board
         {
             for (int j = 0; j < DIM; j++)
             {
-                Tile tile = new Tile();
-                tile.setX(i);
-                tile.setY(j);
-                tile.setSymbol(' ');
+                Tile tile = new Tile(i, j, ' ');
                 _plays.add(tile);
             }
         }

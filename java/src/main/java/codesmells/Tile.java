@@ -6,6 +6,12 @@ public class Tile
     private int Y;
     private char Symbol;
 
+    public Tile(int x, int y, char symbol) {
+        X = x;
+        Y = y;
+        Symbol = symbol;
+    }
+
     public int getX() {
         return X;
     }
