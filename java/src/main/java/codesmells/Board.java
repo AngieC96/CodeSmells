@@ -30,6 +30,11 @@ public class Board
         return null;
     }
 
+    public char returnSymbolInTileAt(int x, int y)
+    {
+        return TileAt(x, y).getSymbol();
+    }
+
     public void changeSymbolInTileAt(char symbol, int x, int y)
     {
         TileAt(x, y).setSymbol(symbol);

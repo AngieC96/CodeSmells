@@ -17,7 +17,7 @@ public class Game {
             throw new Exception("Invalid next player");
         }
         //if not first move but play on an already played tile
-        else if (_board.TileAt(x, y).getSymbol() != ' ') {
+        else if (_board.returnSymbolInTileAt(x, y) != ' ') {
             throw new Exception("Invalid position");
         }
 
@@ -29,7 +29,7 @@ public class Game {
     public char Winner() {
         for (int i=0; i < _board.DIMBOARD; ++i) {
             if (checkWinByRow(i))
-                return _board.TileAt(i, 0).getSymbol();
+                return _board.returnSymbolInTileAt(i, 0);
         }
         return ' ';
     }
@@ -42,15 +42,15 @@ public class Game {
     }
 
     private boolean isRowFullWithSameSymbol(int i) {
-        return _board.TileAt(i, 0).getSymbol() ==
-                _board.TileAt(i, 1).getSymbol() &&
-                _board.TileAt(i, 2).getSymbol() == _board.TileAt(i, 1).getSymbol();
+        return _board.returnSymbolInTileAt(i, 0) ==
+                _board.returnSymbolInTileAt(i, 1) &&
+                _board.returnSymbolInTileAt(i, 2) == _board.returnSymbolInTileAt(i, 1);
     }
 
     private boolean isRowFull(int i) {
-        return _board.TileAt(i, 0).getSymbol() != ' ' &&
-                _board.TileAt(i, 1).getSymbol() != ' ' &&
-                _board.TileAt(i, 2).getSymbol() != ' ';
+        return _board.returnSymbolInTileAt(i, 0) != ' ' &&
+                _board.returnSymbolInTileAt(i, 1) != ' ' &&
+                _board.returnSymbolInTileAt(i, 2) != ' ';
     }
 }
 
