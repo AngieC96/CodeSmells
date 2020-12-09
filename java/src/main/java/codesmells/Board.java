@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Board
 {
+    final int DIMBOARD = 3;
     private List<Tile> _plays = new ArrayList<>();
 
     public Board()
     {
-        final int DIM = 3;
-        for (int i = 0; i < DIM; i++)
+        for (int i = 0; i < DIMBOARD; i++)
         {
-            for (int j = 0; j < DIM; j++)
+            for (int j = 0; j < DIMBOARD; j++)
             {
                 Tile tile = new Tile(i, j, ' ');
                 _plays.add(tile);
