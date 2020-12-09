@@ -29,7 +29,7 @@ public class Board {
         return TileAt(x, y).getSymbol();
     }
 
-    public void changeSymbolInTileAt(char symbol, int x, int y) {
+    public void changeSymbolInTileAt(int x, int y, char symbol) {
         TileAt(x, y).setSymbol(symbol);
     }
 }

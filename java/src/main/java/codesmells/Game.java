@@ -1,7 +1,7 @@
 package codesmells;
 
 public class Game {
-    
+
     private char _lastSymbol = ' ';
     private Board _board = new Board();
 
@@ -24,7 +24,7 @@ public class Game {
 
         // update game state
         _lastSymbol = symbol;
-        _board.changeSymbolInTileAt(symbol, x, y);
+        _board.changeSymbolInTileAt(x, y, symbol);
     }
 
     public char Winner() {
