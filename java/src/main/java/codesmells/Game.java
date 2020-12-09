@@ -27,15 +27,10 @@ public class Game {
     }
 
     public char Winner() {
-        if (checkWinByRow(0))
-            return _board.TileAt(0, 0).getSymbol();
-
-        if (checkWinByRow(1))
-            return _board.TileAt(1, 0).getSymbol();
-
-        if (checkWinByRow(2))
-            return _board.TileAt(2, 0).getSymbol();
-
+        for (int i=0; i < _board.DIMBOARD; ++i) {
+            if (checkWinByRow(i))
+                return _board.TileAt(i, 0).getSymbol();
+        }
         return ' ';
     }
 
