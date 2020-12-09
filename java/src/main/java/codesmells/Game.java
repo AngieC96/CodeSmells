@@ -1,6 +1,7 @@
 package codesmells;
 
 public class Game {
+    
     private char _lastSymbol = ' ';
     private Board _board = new Board();
 

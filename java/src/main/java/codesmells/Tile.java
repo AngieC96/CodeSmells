@@ -1,7 +1,7 @@
 package codesmells;
 
-public class Tile
-{
+public class Tile {
+
     private int X;
     private int Y;
     private char Symbol;
