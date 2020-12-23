@@ -22,3 +22,7 @@ We created a very smelly implementation of TicTacToe. There are quite a few code
 * [Dead Code](https://sourcemaking.com/refactoring/smells/dead-code)                 : the first four lines in method `AddTileAt()` are useless. *Solution:* remove them.
 
 Start by identifying the smells and then slowly refactor the code. Remember to keep the tests passing at all times during the refactor. It's ok to revert back to a previous working state at any moment.
+
+
+
+See the professor's refactoring at this [link](https://github.com/dario-campagna/CodeSmells/tree/refactor).
