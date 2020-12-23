@@ -30,9 +30,13 @@ public class Game {
     public char Winner() {
         for (int i=0; i < _board.DIMBOARD; ++i) {
             if (checkWinByRow(i))
-                return _board.returnSymbolInTileAt(new Position(i, 0));
+                return getSymbolInTileAt(i, 0);
         }
         return ' ';
+    }
+
+    private char getSymbolInTileAt(int x, int y) {
+        return _board.returnSymbolInTileAt(new Position(x, y));
     }
 
     private boolean checkWinByRow(int i) {
@@ -43,15 +47,15 @@ public class Game {
     }
 
     private boolean isRowFullWithSameSymbol(int i) {
-        return _board.returnSymbolInTileAt(new Position(i,0)) ==
-                _board.returnSymbolInTileAt(new Position(i,1)) &&
-                _board.returnSymbolInTileAt(new Position(i,2)) == _board.returnSymbolInTileAt(new Position(i,1));
+        return getSymbolInTileAt(i, 0) ==
+                getSymbolInTileAt(i, 1) &&
+                getSymbolInTileAt(i, 2) == getSymbolInTileAt(i, 1);
     }
 
     private boolean isRowFull(int i) {
-        return _board.returnSymbolInTileAt(new Position(i,0)) != ' ' &&
-                _board.returnSymbolInTileAt(new Position(i,1)) != ' ' &&
-                _board.returnSymbolInTileAt(new Position(i,2)) != ' ';
+        return getSymbolInTileAt(i, 0) != ' ' &&
+                getSymbolInTileAt(i, 1) != ' ' &&
+                getSymbolInTileAt(i, 2) != ' ';
     }
 }
 
