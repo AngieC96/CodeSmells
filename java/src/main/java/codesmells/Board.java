@@ -6,18 +6,18 @@ import java.util.List;
 public class Board {
 
     final int DIMBOARD = 3;
-    private List<Tile> _plays = new ArrayList<>();
+    private List<Tile> tiles = new ArrayList<>();
 
     public Board() {
         for (int i = 0; i < DIMBOARD; i++) {
             for (int j = 0; j < DIMBOARD; j++) {
-                _plays.add(new Tile(i, j, ' '));
+                tiles.add(new Tile(i, j, ' '));
             }
         }
     }
 
     public Tile TileAt(Position p) {
-        for (Tile t : _plays) {
+        for (Tile t : tiles) {
             if (t.getP().equals(p)){
                 return t;
             }

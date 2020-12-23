@@ -6,10 +6,8 @@ public class Game {
     private Board _board = new Board();
 
     public void Play(Position p, char symbol) throws Exception {
-        if (firstMove()) {
-            if (PlayerOPlaysFirst(symbol)) {
-                throw new Exception("Invalid first player");
-            }
+        if (invalidFirstPlayer(symbol)) {
+            throw new Exception("Invalid first player");
         }
         else if (playerRepeatedTwice(symbol)) {
             throw new Exception("Invalid next player");
@@ -34,12 +32,8 @@ public class Game {
         return _lastSymbol == symbol;
     }
 
-    private boolean firstMove() {
-        return _lastSymbol == ' ';
-    }
-
-    private boolean PlayerOPlaysFirst(char symbol) {
-        return symbol == 'O';
+    private boolean invalidFirstPlayer(char symbol) {
+        return _lastSymbol == ' ' && symbol == 'O';
     }
 
     public char Winner() {

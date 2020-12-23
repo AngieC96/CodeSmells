@@ -1,8 +1,7 @@
 package codesmells;
 
-import java.util.Objects;
-
 public class Position {
+
     private int X;
     private int Y;
 
