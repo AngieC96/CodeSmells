@@ -6,25 +6,40 @@ public class Game {
     private Board _board = new Board();
 
     public void Play(Position p, char symbol) throws Exception {
-        //if first move
-        if (_lastSymbol == ' ') {
-            //if player is X
-            if (symbol == 'O') {
+        if (firstMove()) {
+            if (PlayerOPlaysFirst(symbol)) {
                 throw new Exception("Invalid first player");
             }
         }
-        //if not first move but player repeated
-        else if (symbol == _lastSymbol) {
+        else if (playerRepeatedTwice(symbol)) {
             throw new Exception("Invalid next player");
         }
-        //if not first move but play on an already played tile
-        else if (_board.returnSymbolInTileAt(p) != ' ') {
+        else if (PlayedInAlreadyPlayedPosition(p)) {
             throw new Exception("Invalid position");
         }
 
-        // update game state
+        updateGameState(p, symbol);
+    }
+
+    private void updateGameState(Position p, char symbol) {
         _lastSymbol = symbol;
         _board.changeSymbolInTileAt(p, symbol);
+    }
+
+    private boolean PlayedInAlreadyPlayedPosition(Position p) {
+        return _board.returnSymbolInTileAt(p) != ' ';
+    }
+
+    private boolean playerRepeatedTwice(char symbol) {
+        return _lastSymbol == symbol;
+    }
+
+    private boolean firstMove() {
+        return _lastSymbol == ' ';
+    }
+
+    private boolean PlayerOPlaysFirst(char symbol) {
+        return symbol == 'O';
     }
 
     public char Winner() {
@@ -47,8 +62,7 @@ public class Game {
     }
 
     private boolean isRowFullWithSameSymbol(int i) {
-        return getSymbolInTileAt(i, 0) ==
-                getSymbolInTileAt(i, 1) &&
+        return getSymbolInTileAt(i, 0) == getSymbolInTileAt(i, 1) &&
                 getSymbolInTileAt(i, 2) == getSymbolInTileAt(i, 1);
     }
 
