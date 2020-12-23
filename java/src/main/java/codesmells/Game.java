@@ -5,7 +5,7 @@ public class Game {
     private char _lastSymbol = ' ';
     private Board _board = new Board();
 
-    public void Play(char symbol, int x, int y) throws Exception {
+    public void Play(Position p, char symbol) throws Exception {
         //if first move
         if (_lastSymbol == ' ') {
             //if player is X
@@ -18,19 +18,19 @@ public class Game {
             throw new Exception("Invalid next player");
         }
         //if not first move but play on an already played tile
-        else if (_board.returnSymbolInTileAt(x, y) != ' ') {
+        else if (_board.returnSymbolInTileAt(p) != ' ') {
             throw new Exception("Invalid position");
         }
 
         // update game state
         _lastSymbol = symbol;
-        _board.changeSymbolInTileAt(x, y, symbol);
+        _board.changeSymbolInTileAt(p, symbol);
     }
 
     public char Winner() {
         for (int i=0; i < _board.DIMBOARD; ++i) {
             if (checkWinByRow(i))
-                return _board.returnSymbolInTileAt(i, 0);
+                return _board.returnSymbolInTileAt(new Position(i, 0));
         }
         return ' ';
     }
@@ -43,15 +43,15 @@ public class Game {
     }
 
     private boolean isRowFullWithSameSymbol(int i) {
-        return _board.returnSymbolInTileAt(i, 0) ==
-                _board.returnSymbolInTileAt(i, 1) &&
-                _board.returnSymbolInTileAt(i, 2) == _board.returnSymbolInTileAt(i, 1);
+        return _board.returnSymbolInTileAt(new Position(i,0)) ==
+                _board.returnSymbolInTileAt(new Position(i,1)) &&
+                _board.returnSymbolInTileAt(new Position(i,2)) == _board.returnSymbolInTileAt(new Position(i,1));
     }
 
     private boolean isRowFull(int i) {
-        return _board.returnSymbolInTileAt(i, 0) != ' ' &&
-                _board.returnSymbolInTileAt(i, 1) != ' ' &&
-                _board.returnSymbolInTileAt(i, 2) != ' ';
+        return _board.returnSymbolInTileAt(new Position(i,0)) != ' ' &&
+                _board.returnSymbolInTileAt(new Position(i,1)) != ' ' &&
+                _board.returnSymbolInTileAt(new Position(i,2)) != ' ';
     }
 }
 

@@ -16,20 +16,20 @@ public class Board {
         }
     }
 
-    public Tile TileAt(int x, int y) {
+    public Tile TileAt(Position p) {
         for (Tile t : _plays) {
-            if (t.getX() == x && t.getY() == y){
+            if (t.getP().equals(p)){
                 return t;
             }
         }
         return null;
     }
 
-    public char returnSymbolInTileAt(int x, int y) {
-        return TileAt(x, y).getSymbol();
+    public char returnSymbolInTileAt(Position p) {
+        return TileAt(p).getSymbol();
     }
 
-    public void changeSymbolInTileAt(int x, int y, char symbol) {
-        TileAt(x, y).setSymbol(symbol);
+    public void changeSymbolInTileAt(Position p, char symbol) {
+        TileAt(p).setSymbol(symbol);
     }
 }

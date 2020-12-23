@@ -2,30 +2,20 @@ package codesmells;
 
 public class Tile {
 
-    private int X;
-    private int Y;
+    private Position P;
     private char Symbol;
 
     public Tile(int x, int y, char symbol) {
-        X = x;
-        Y = y;
+        setP(new Position(x, y));
         Symbol = symbol;
     }
 
-    public int getX() {
-        return X;
+    public Position getP() {
+        return P;
     }
 
-    public void setX(int x) {
-        X = x;
-    }
-
-    public int getY() {
-        return Y;
-    }
-
-    public void setY(int y) {
-        Y = y;
+    public void setP(Position p) {
+        P = p;
     }
 
     public char getSymbol() {
