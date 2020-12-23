@@ -11,7 +11,7 @@ public class Board {
     public Board() {
         for (int i = 0; i < DIMBOARD; i++) {
             for (int j = 0; j < DIMBOARD; j++) {
-                _plays.add(new Tile(i, j, ' '));
+                _plays.add(new Tile(new Position(i, j), ' '));
             }
         }
     }

@@ -5,8 +5,8 @@ public class Tile {
     private Position P;
     private char Symbol;
 
-    public Tile(int x, int y, char symbol) {
-        setP(new Position(x, y));
+    public Tile(Position p, char symbol) {
+        setP(p);
         Symbol = symbol;
     }
 
@@ -16,6 +16,8 @@ public class Tile {
 
     public void setP(Position p) {
         P = p;
+        //P.setX(p.getX());
+        //P.setY(p.getY());
     }
 
     public char getSymbol() {
